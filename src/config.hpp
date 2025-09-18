@@ -10,7 +10,7 @@ struct Config {
     int hi;      // clamp high
 };
 
-inline Config CFG = {1, 0, -100, 100};
+inline Config CFG = {2, 0, -10, 10};
 
 }
 
