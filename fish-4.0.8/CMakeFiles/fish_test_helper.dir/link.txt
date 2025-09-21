@@ -1,1 +1,0 @@
-/usr/bin/cc -O2 -g -DNDEBUG CMakeFiles/fish_test_helper.dir/src/fish_test_helper.c.o -o fish_test_helper 
