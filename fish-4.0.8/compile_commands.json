@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/richw/.code/SWE_425/GitHub-Introduction-CS425/fish-4.0.8",
+  "command": "/usr/bin/cc -DCMAKE_BINARY_DIR=\\\"/home/richw/.code/SWE_425/GitHub-Introduction-CS425/fish-4.0.8\\\" -DCMAKE_SOURCE_DIR=\\\"/home/richw/.code/SWE_425/GitHub-Introduction-CS425/fish-4.0.8\\\" -D_UNICODE=1  -O2 -g -DNDEBUG -o CMakeFiles/fish_test_helper.dir/src/fish_test_helper.c.o -c /home/richw/.code/SWE_425/GitHub-Introduction-CS425/fish-4.0.8/src/fish_test_helper.c",
+  "file": "/home/richw/.code/SWE_425/GitHub-Introduction-CS425/fish-4.0.8/src/fish_test_helper.c",
+  "output": "CMakeFiles/fish_test_helper.dir/src/fish_test_helper.c.o"
+}
+]

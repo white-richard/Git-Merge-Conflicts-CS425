@@ -1,18 +1,49 @@
 #include "math.hpp"
-#include <algorithm>
-#include <limits>
 
 namespace dm {
 
+double f(double x) { return x*x*x - 3.0*x; }
+double fprime(double x) { return 3.0*x*x - 3.0; }
+double Fantiderivative(double x) { return 0.25*x*x*x*x - 1.5*x*x; }
+
 double normalize(double x) {
-    double y = (x + CFG.offset) * CFG.scale;
-    return std::clamp(y, static_cast<double>(CFG.lo), static_cast<double>(CFG.hi));
+    const double y = (x + CFG.offset) * CFG.scale;
+    return std::clamp(y,
+        static_cast<double>(CFG.lo),
+        static_cast<double>(CFG.hi));
 }
 
-double evaluate(double x) {
-    // Quartic: a*x^4 + b*x^3 + c*x^2 + d*x + e
-    const auto [a,b,c,d,e] = COEFFS;
+double evaluate(double x, Mode mode) {
     double xn = normalize(x);
-    return ((((a*xn + b)*xn + d) * xn + e);
+
+    // Value with linearization near 0, Student D
+    if (mode == Mode::VALUE) {
+        if (std::abs(xn) < DELTA) {
+            return f(0.0) + fprime(0.0) * xn;
+        }
+        return f(xn);
+    }
+
+    // Intergal via antiderivative, Student C
+    if (mode == Mode::INTEGRAL) {
+        return Fantiderivative(xn) - Fantiderivative(0.0);
+    }
+
+    // Newton step with derivative guard, Student B
+    if (mode == Mode::NEWTON_STEP) {
+        const double d = fprime(xn);
+        if (std::abs(d) < EPS) {
+            return xn;
+        }
+        return xn - f(xn)/d;
+    }
+
+    // Derivative, Student A
+    if (mode == Mode::DERIVATIVE) {
+        return fprime(xn);
+    }
+
+    return f(xn);
 }
 
+}

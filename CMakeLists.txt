@@ -9,6 +9,7 @@ target_include_directories(mathlib PUBLIC ${CMAKE_SOURCE_DIR}/src)
 add_executable(app src/main.cpp)
 target_link_libraries(app PRIVATE mathlib)
 
+enable_testing()
 add_executable(tests tests/test.cpp)
 target_link_libraries(tests PRIVATE mathlib)
-
+add_test(NAME unit COMMAND tests)

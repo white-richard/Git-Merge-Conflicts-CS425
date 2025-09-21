@@ -1,14 +1,20 @@
 #pragma once
-#include <array>
-#include "config.hpp"
+#include <algorithm>
 
 namespace dm {
 
-// Quartic coefficients a..e
-inline std::array<int,5> COEFFS = {2, 2, 4, 4, 5};
+struct Config {int scale; int offset; int lo; int hi;};
+inline Config CFG{1, 0, -100, 100};
+
+enum class Mode {VALUE, DERIVATIVE, NEWTON_STEP, INTEGRAL};
+
+static constexpr double EPS = 1e-9;
+static constexpr double DELTA = 1e-3;
+
+double f(double x);
+double fprime(double x);
+double Fantiderivative(double x);
 
 double normalize(double x);
-double evaluate(double x);
-
+double evaluate(double x, Mode mode = Mode::VALUE);
 }
-

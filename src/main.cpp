@@ -2,7 +2,5 @@
 #include "math.hpp"
 
 int main() {
-    std::cout << dm::evaluate(2.0) << "\n";
-    return 0;
+    std::cout << "f(2) = " << dm::evaluate(2.0, dm::Mode::VALUE) << "\n";
 }
-
