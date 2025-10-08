@@ -2,9 +2,15 @@
 
 namespace dm {
 
-double f(double x) { return x*x*x - 3.0*x; }
-double fprime(double x) { return 3.0*x*x - 3.0; }
-double Fantiderivative(double x) { return 0.25*x*x*x*x - 1.5*x*x; }
+double f(double x) { 
+    return x*x*x - 3.0*x; 
+}
+double fprime(double x) { 
+    return 3.0*x*x - 3.0; 
+}
+double Fantiderivative(double x) { 
+    return 0.25*x*x*x*x - 1.5*x*x; 
+}
 
 double normalize(double x) {
     const double y = (x + CFG.offset) * CFG.scale;
@@ -14,6 +20,8 @@ double normalize(double x) {
 }
 
 double evaluate(double x, Mode mode) {
+
+    // Instructor
     double xn = normalize(x);
 
     // Value with linearization near 0, Student D
