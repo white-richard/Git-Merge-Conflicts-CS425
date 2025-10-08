@@ -12,6 +12,10 @@ static constexpr double EPS = 1e-9;
 static constexpr double DELTA = 1e-3;
 
 double f(double x);
+
+double normalize(double x);
+
+
 // ==> ADD FUNCTION DECLARATIONS HERE <==
 double evaluate(double x, Mode mode = Mode::VALUE);
 

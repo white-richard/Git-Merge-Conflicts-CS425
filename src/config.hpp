@@ -12,6 +12,9 @@ enum class Mode { VALUE, DERIVATIVE, NEWTON_STEP, INTEGRAL };
 static constexpr double EPS   = 1e-9;
 static constexpr double DELTA = 1e-3;
 
+
+double normalize(double x);
+
 // ==> ADD FUNCTION DECLARATIONS HERE <==
 
 double evaluate(double x, Mode mode = Mode::VALUE);
