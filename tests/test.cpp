@@ -2,6 +2,8 @@
 #include <cmath>
 #include "math.hpp"
 
+// Vinh Leeeeeeeeeee
+
 using dm::Mode;
 
 static inline bool nearly(double a, double b, double eps=1e-12) {
