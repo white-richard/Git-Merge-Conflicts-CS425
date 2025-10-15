@@ -1,10 +1,3 @@
-# Github Merge Workshop
+# Resolve Merge Conflicts Excercise
 
-```bash
-mkdir -p build && cd build
-cmake ..
-cmake --build .
-ctest --output-on-failure
-./app
-cd .. && rm -rf build
-```
+Refer to [the instruction PDF](./instructions.pdf).
